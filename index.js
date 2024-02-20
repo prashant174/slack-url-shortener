@@ -9,7 +9,7 @@ app.get("/test",(req,res)=>{
     res.send("URL SHORTNER server working")
 })
 app.use(express.json())
-app.use("/url",router)
+app.use("/",router)
 
 
 
