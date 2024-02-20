@@ -3,7 +3,7 @@ const { generateNewUrl, shortUrl } = require("../controllers/urlController")
 const router=express.Router()
 
 router.post("/",generateNewUrl)
-router.get("/:shortId",shortUrl)
+router.get("/:shortUrl",shortUrl)
 
 module.exports={
     router
