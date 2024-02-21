@@ -5,11 +5,11 @@ const { URL } = require("./models/urlModel")
 const app=express()
 require("dotenv").config()
 
-app.get("/test",(req,res)=>{
-    res.send("URL SHORTNER server working")
+app.get("/",(req,res)=>{
+    res.send("Welcome to url shortner app")
 })
 app.use(express.json())
-app.use("/",router)
+app.use("/url",router)
 
 
 
