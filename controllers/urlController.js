@@ -2,7 +2,8 @@ const shortid=require("shortid")
 const { URL } = require("../models/urlModel")
 
 const generateNewUrl= async(req,res)=>{
-    const body=req.body
+    try{
+      const body=req.body
     if(!body.url){
         return res.status(400).send({msg:"Url is required"})
     }
@@ -14,7 +15,12 @@ const generateNewUrl= async(req,res)=>{
      visitHistory:[]
   });
 
-  return res.json({id:shortId})
+  return res.json({id:shortId})  
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({msg:"something went wrong please try again later"})
+    }
+    
 }
 
 const shortUrl=async(req,res)=>{
@@ -31,6 +37,7 @@ const shortUrl=async(req,res)=>{
         res.redirect(entry.redirectUrl)
     } catch (error) {
         console.log(error)
+        res.status(400).send({msg:"something went wrong please try again later"})
     }
    
 }
